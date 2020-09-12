@@ -25,5 +25,21 @@ Type one of this actions.
 
 print(console_gui)
 
-while True:
-    pass
+result = calculate(add, 5, 5)
+print(result)
+#
+# while True:
+#     action = input("You action is: ")
+#     a = int(input("First number is: "))
+#     b = int(input("second number is: "))
+#
+#     if action == "quit" or action == "q":
+#         print("Thank you for your time. Bye.")
+#         break
+#
+#     try:
+#         result = calculate(action, a, b)
+#     except TypeError:
+#         print("Mismatch in types. Contact admin.")
+#       except NameError:
+#           print("That action is not allowed.")
