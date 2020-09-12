@@ -3,16 +3,16 @@ def calculate(operation, a, b):
 
 
 def add(a, b):
-    pass
+    return a + b
 
 
 def subtract(a, b):
-    pass
+    return a - b
 
 
 def divide(a, b):
-    pass
+    return a / b
 
 
 def multiplicate(a, b):
-    pass
+    return a * b
