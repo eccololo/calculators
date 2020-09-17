@@ -3,6 +3,14 @@ from termcolor import colored, cprint
 email = colored('mstem.net@gmail.com', 'yellow', attrs=['bold'])
 
 available_actions = ["actions", "add", "subtract", "divide", "multiplicate", "quit"]
+available_descriptions = [
+    "- show available actions.",
+    "- ads two numbers.",
+    "- subrast two numbers.",
+    "- divide two numbers.,",
+    "- multiplicate two numbers.",
+    "- type quit or q to exit."
+]
 actions_colored = []
 for action in available_actions:
     color = "yellow"
@@ -58,12 +66,12 @@ console_gui = f"""
 ====================================================================
 |  Welcome to simple console calculator by Mateusz Hyla.           |
 |  Available actions:                                              |
-|       {actions_colored[0]}           - show available actions.   |
-|       {actions_colored[1]}           - ads two numbers.          |
-|       {actions_colored[2]}           - subrast two numbers.      |
-|       {actions_colored[3]}           - divide two numbers        |
-|       {actions_colored[4]}           - multiplicate two numbers  |
-|       {actions_colored[5]}                                       |
+|       {actions_colored[0].ljust(31)}{available_descriptions[0].ljust(40)} |
+|       {actions_colored[1].ljust(31)}{available_descriptions[1].ljust(40)} |
+|       {actions_colored[2].ljust(31)}{available_descriptions[2].ljust(40)} |
+|       {actions_colored[3].ljust(31)}{available_descriptions[3].ljust(40)} |
+|       {actions_colored[4].ljust(31)}{available_descriptions[4].ljust(40)} |
+|       {actions_colored[5].ljust(31)}{available_descriptions[5].ljust(40)} |
 |  Type one of this actions to start                               |
 """
 
