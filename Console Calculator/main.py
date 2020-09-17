@@ -39,12 +39,15 @@ print(console_gui)
 
 while True:
     action = input("You action is: ")
-    a = int(input("First number is: "))
-    b = int(input("Second number is: "))
 
     if action == "quit" or action == "q":
         print("Thank you for your time. Bye.")
         break
+
+    a = int(input("First number is: "))
+    b = int(input("Second number is: "))
+
+
 
     try:
         result = calculate(action, a, b)
