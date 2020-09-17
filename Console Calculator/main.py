@@ -1,3 +1,8 @@
+from termcolor import colored, cprint
+
+email = colored('mstem.net@gmail.com', 'yellow', attrs=['bold'])
+
+
 def calculate(operation, a, b):
     return operation(a, b)
 
@@ -58,6 +63,8 @@ print(console_gui)
 while True:
     action = input("You action is: ")
 
+    action_colored = colored(action, 'red', attrs=['bold'])
+
     if action == "quit" or action == "q":
         print("Thank you for your time. Bye.")
         break
@@ -73,10 +80,10 @@ while True:
         result = calculate(convert_str_to_method(action), a, b)
         print(f"{a} {convert_str_to_sympol(action)} {b} = {result}.")
     except TypeError:
-        print("Mismatch in types. Contact admin.")
+        print(f"Mismatch in types. Contact admin at {email}.")
     except NameError:
-        print("That action is not allowed.")
+        print(f"That action is not allowed. For more info contact admin at {email}.")
     except ZeroDivisionError:
-        print("Second number cannot be 0 if you pick division.")
+        print("fSecond number cannot be 0 if you pick division. For more info contact admin at {email}.")
     except KeyError:
-        print(f"Internal error of a function. You probably type wrong action: {action}. Contact admin.")
+        print(f"Internal error of a function. You probably type wrong action: {action_colored}. Contact admin at {email}.")
