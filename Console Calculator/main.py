@@ -2,6 +2,16 @@ def calculate(operation, a, b):
     return operation(a, b)
 
 
+def convert_str_to_method(str):
+    methods_dics = {
+        "add": add,
+        "subract": subtract,
+        "divide": divide,
+        "multiplicate": multiplicate,
+    }
+
+    return methods_dics[str]
+
 def add(a, b):
     return a + b
 
@@ -17,6 +27,7 @@ def divide(a, b):
 def multiplicate(a, b):
     return a * b
 
+
 console_gui = """
 ====================================================================
 |  Welcome to simple console calculator by Mateusz Hyla.           |
@@ -29,8 +40,6 @@ console_gui = """
 |       quit                                                       |
 |  Type one of this actions to start                               |
 """
-
-available_actions = ["actions", "add", "subract", "divide", "multiplicate", "quit"]
 
 print(console_gui)
 
@@ -49,12 +58,10 @@ while True:
     b = int(input("Second number is: "))
 
     try:
-        result = calculate(action, a, b)
+        result = calculate(convert_str_to_method(action), a, b)
     except TypeError:
         print("Mismatch in types. Contact admin.")
     except NameError:
         print("That action is not allowed.")
     except ZeroDivisionError:
         print("Second number cannot be 0 if you pick division.")
-
-
