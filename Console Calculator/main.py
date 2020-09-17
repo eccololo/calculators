@@ -5,12 +5,24 @@ def calculate(operation, a, b):
 def convert_str_to_method(str):
     methods_dics = {
         "add": add,
-        "subract": subtract,
+        "subtract": subtract,
         "divide": divide,
         "multiplicate": multiplicate,
     }
 
     return methods_dics[str]
+
+
+def convert_str_to_sympol(str):
+    methods_dics = {
+        "add": "+",
+        "subract": "-",
+        "divide": "/",
+        "multiplicate": "*",
+    }
+
+    return methods_dics[str]
+
 
 def add(a, b):
     return a + b
@@ -59,9 +71,12 @@ while True:
 
     try:
         result = calculate(convert_str_to_method(action), a, b)
+        print(f"{a} {convert_str_to_sympol(action)} {b} = {result}.")
     except TypeError:
         print("Mismatch in types. Contact admin.")
     except NameError:
         print("That action is not allowed.")
     except ZeroDivisionError:
         print("Second number cannot be 0 if you pick division.")
+    except KeyError:
+        print(f"Internal error of a function. You probably type wrong action: {action}. Contact admin.")
