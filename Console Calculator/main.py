@@ -33,9 +33,6 @@ console_gui = """
 available_actions = ["actions", "add", "subract", "divide", "multiplicate", "quit"]
 
 print(console_gui)
-#
-# result = calculate(divide, 5, 0)
-# print(result)
 
 while True:
     action = input("You action is: ")
@@ -44,10 +41,12 @@ while True:
         print("Thank you for your time. Bye.")
         break
 
+    if action == "actions":
+        print(console_gui)
+        continue
+
     a = int(input("First number is: "))
     b = int(input("Second number is: "))
-
-
 
     try:
         result = calculate(action, a, b)
