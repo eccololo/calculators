@@ -2,6 +2,15 @@ from termcolor import colored, cprint
 
 email = colored('mstem.net@gmail.com', 'yellow', attrs=['bold'])
 
+available_actions = ["actions", "add", "subtract", "divide", "multiplicate", "quit"]
+actions_colored = []
+for action in available_actions:
+    color = "yellow"
+    if action == "quit":
+       color = "red"
+    actions_colored.append(colored(action, color, attrs=['bold']))
+
+
 
 def calculate(operation, a, b):
     return operation(a, b)
@@ -45,16 +54,16 @@ def multiplicate(a, b):
     return a * b
 
 
-console_gui = """
+console_gui = f"""
 ====================================================================
 |  Welcome to simple console calculator by Mateusz Hyla.           |
 |  Available actions:                                              |
-|       actions           - show available actions.                |
-|       add               - ads two numbers.                       |
-|       subtract          - subrast two numbers.                   |
-|       divide            - divide two numbers                     |
-|       multiplicate      - multiplicate two numbers               |
-|       quit                                                       |
+|       {actions_colored[0]}           - show available actions.   |
+|       {actions_colored[1]}           - ads two numbers.          |
+|       {actions_colored[2]}           - subrast two numbers.      |
+|       {actions_colored[3]}           - divide two numbers        |
+|       {actions_colored[4]}           - multiplicate two numbers  |
+|       {actions_colored[5]}                                       |
 |  Type one of this actions to start                               |
 """
 
