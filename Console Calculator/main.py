@@ -37,6 +37,10 @@ def multiplicate(a, b):
     return a * b
 
 
+def modulo(a, b):
+    return a % b
+
+
 calculator_objects = {
     "add": {
         "method": add,
@@ -64,6 +68,13 @@ calculator_objects = {
         "symbol": "*",
         "gui_action": "mult",
         "description": "- multiplicate two numbers.",
+        "color": "yellow"
+    },
+    "mod": {
+        "method": modulo,
+        "symbol": "%",
+        "gui_action": "mod",
+        "description": "- return what is left from division.",
         "color": "yellow"
     },
     "quit": {
@@ -94,8 +105,9 @@ console_gui = f"""
 |       {actions_colored[1].ljust(31)}{calculator_objects["subtract"]["description"].ljust(40)} |
 |       {actions_colored[2].ljust(31)}{calculator_objects["divide"]["description"].ljust(40)} |
 |       {actions_colored[3].ljust(31)}{calculator_objects["mult"]["description"].ljust(40)} |
-|       {actions_colored[4].ljust(31)}{calculator_objects["quit"]["description"].ljust(40)} |
-|       {actions_colored[5].ljust(31)}{calculator_objects["actions"]["description"].ljust(40)} |
+|       {actions_colored[4].ljust(31)}{calculator_objects["mod"]["description"].ljust(40)} |
+|       {actions_colored[5].ljust(31)}{calculator_objects["quit"]["description"].ljust(40)} |
+|       {actions_colored[6].ljust(31)}{calculator_objects["actions"]["description"].ljust(40)} |
 |  Type one of this actions to start                               |
 """
 
