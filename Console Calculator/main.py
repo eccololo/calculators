@@ -59,7 +59,7 @@ calculator_objects = {
         "description": "- divide two numbers.",
         "color": "yellow"
     },
-    "multiplicate": {
+    "mult": {
         "method": multiplicate,
         "symbol": "*",
         "gui_action": "mult",
@@ -93,7 +93,7 @@ console_gui = f"""
 |       {actions_colored[0].ljust(31)}{calculator_objects["add"]["description"].ljust(40)} |
 |       {actions_colored[1].ljust(31)}{calculator_objects["subtract"]["description"].ljust(40)} |
 |       {actions_colored[2].ljust(31)}{calculator_objects["divide"]["description"].ljust(40)} |
-|       {actions_colored[3].ljust(31)}{calculator_objects["multiplicate"]["description"].ljust(40)} |
+|       {actions_colored[3].ljust(31)}{calculator_objects["mult"]["description"].ljust(40)} |
 |       {actions_colored[4].ljust(31)}{calculator_objects["quit"]["description"].ljust(40)} |
 |       {actions_colored[5].ljust(31)}{calculator_objects["actions"]["description"].ljust(40)} |
 |  Type one of this actions to start                               |
@@ -107,7 +107,7 @@ while True:
 
     action_colored = colored(action, 'red', attrs=['bold'])
 
-    if action == "quit" or action == "q":
+    if action == "quit" or action == "q" or action == "exit":
         print("Thank you for your time. Bye.")
         break
 
@@ -136,4 +136,3 @@ while True:
               f" {action_colored}. Contact admin at {email}.")
         logging.error("Someone used action which we didn't specify so there is no such key "
                       "in actions dictionary.")
-        break
