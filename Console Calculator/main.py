@@ -43,7 +43,8 @@ def subtract(a, b):
 
 
 def divide(a, b):
-    return a / b
+    result_str = "{result:.4f}".format(result=a / b)
+    return float(result_str)
 
 
 def multiplicate(a, b):
@@ -133,7 +134,7 @@ while True:
 
     try:
         result = calculate(convert_str_to_method(action), a, b)
-        print(f"{a} {convert_str_to_sympol(action)} {b} = {result}.")
+        print(f"{a} {convert_str_to_sympol(action)} {b} = {result}")
     except TypeError:
         print(f"Mismatch in types. Contact admin at {email}.")
         logging.critical("Someone messed with code because this exception should never execute.")
