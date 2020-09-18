@@ -1,17 +1,11 @@
 from termcolor import colored, cprint
+import logging
 
+# Logging config
+logging.basicConfig(filename='loges.log', filemode='w',
+                    format='%(levelname)s - File: %(filename)s - Line: %(lineno)d '
+                           '- Time: %(asctime)s - %(message)s', level=logging.INFO)
 email = colored('mstem.net@gmail.com', 'yellow', attrs=['bold'])
-
-
-# available_actions = ["actions", "add", "subtract", "divide", "multiplicate", "quit"]
-# available_descriptions = [
-#     "- show available actions.",
-#     "- ads two numbers.",
-#     "- subrast two numbers.",
-#     "- divide two numbers.",
-#     "- multiplicate two numbers.",
-#     "- type quit or q to exit."
-# ]
 
 
 def calculate(operation, a, b):
@@ -144,7 +138,12 @@ while True:
     except NameError:
         print(f"That action is not allowed. For more info contact admin at {email}.")
     except ZeroDivisionError:
-        print("fSecond number cannot be 0 if you pick division. For more info contact admin at {email}.")
+        print(f"Second number cannot be 0 if you pick division. For more info contact admin at {email}.")
+        logging.warning("Someone tried to divide number 1 by a zero.")
+        break
     except KeyError:
         print(
             f"Internal error of a function. You probably type wrong action: {action_colored}. Contact admin at {email}.")
+        logging.error("Someone used action which we didn't specify so there is no such key "
+                      "in actions dictionary.")
+        break
