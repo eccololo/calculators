@@ -13,14 +13,7 @@ def calculate(operation, a, b):
 
 
 def convert_str_to_method(str):
-    methods_dics = {
-        "add": add,
-        "subtract": subtract,
-        "divide": divide,
-        "multiplicate": multiplicate,
-    }
-
-    return methods_dics[str]
+    return calculator_objects[str]["method"]
 
 
 def convert_str_to_sympol(str):
