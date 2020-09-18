@@ -13,5 +13,15 @@ calculator.
 And finally I will create web app simple calculator with 
 Django Framework.
 
-## Author
+##Author
+My name is Mateusz Hyla and I am passionate about programming
+and mathematics. I like to learn STEM subjects and I run 
+a STEM blog at [mstem.net](https://mstem.net).
+
+Currently I develop my skills in Python tech stack. I learn 
+Python, Django, PostreSQL, Turtle and PyGame. I am interested 
+in Web Application creation as well as Game Development in Python.
+
+##Hire Me
+
 
