@@ -11,7 +11,7 @@ email = colored('mstem.net@gmail.com', 'yellow', attrs=['bold'])
 
 def calculate(operation, a, b):
     if b is None:
-        result = "{result:.4f}".format(result=operation(a))
+        result = round_to_4(operation(a))
         return result
     return operation(a, b)
 
@@ -33,7 +33,7 @@ def subtract(a, b):
 
 
 def divide(a, b):
-    result_str = "{result:.4f}".format(result=a / b)
+    result_str = round_to_4(a / b)
     return float(result_str)
 
 
@@ -47,6 +47,10 @@ def modulo(a, b):
 
 def square_root(a):
     return math.sqrt(a)
+
+
+def round_to_4(a):
+    return "{result:.4f}".format(result=a)
 
 
 calculator_objects = {
