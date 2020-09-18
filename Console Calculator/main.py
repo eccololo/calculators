@@ -26,7 +26,7 @@ def convert_str_to_method(str):
 def convert_str_to_sympol(str):
     methods_dics = {
         "add": "+",
-        "subract": "-",
+        "subtract": "-",
         "divide": "/",
         "multiplicate": "*",
     }
@@ -116,6 +116,7 @@ print(console_gui)
 
 while True:
     action = input("You action is: ")
+    action = action.strip()
 
     action_colored = colored(action, 'red', attrs=['bold'])
 
@@ -135,6 +136,8 @@ while True:
         print(f"{a} {convert_str_to_sympol(action)} {b} = {result}.")
     except TypeError:
         print(f"Mismatch in types. Contact admin at {email}.")
+        logging.critical("Someone messed with code because this exception should never execute.")
+        break
     except NameError:
         print(f"That action is not allowed. For more info contact admin at {email}.")
     except ZeroDivisionError:
@@ -142,8 +145,8 @@ while True:
         logging.warning("Someone tried to divide number 1 by a zero.")
         break
     except KeyError:
-        print(
-            f"Internal error of a function. You probably type wrong action: {action_colored}. Contact admin at {email}.")
+        print(f"Internal error of a function. You probably type wrong action:"
+              f" {action_colored}. Contact admin at {email}.")
         logging.error("Someone used action which we didn't specify so there is no such key "
                       "in actions dictionary.")
         break
