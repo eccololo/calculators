@@ -1,4 +1,5 @@
 from termcolor import colored, cprint
+import math
 import logging
 
 # Logging config
@@ -9,6 +10,9 @@ email = colored('mstem.net@gmail.com', 'yellow', attrs=['bold'])
 
 
 def calculate(operation, a, b):
+    if b is None:
+        result = "{result:.4f}".format(result=operation(a))
+        return result
     return operation(a, b)
 
 
@@ -39,6 +43,10 @@ def multiplicate(a, b):
 
 def modulo(a, b):
     return a % b
+
+
+def square_root(a):
+    return math.sqrt(a)
 
 
 calculator_objects = {
@@ -74,7 +82,14 @@ calculator_objects = {
         "method": modulo,
         "symbol": "%",
         "gui_action": "mod",
-        "description": "- return what is left from division.",
+        "description": "- returns what is left from division.",
+        "color": "yellow"
+    },
+    "sqrt": {
+        "method": square_root,
+        "symbol": u'\u221A',
+        "gui_action": "sqrt",
+        "description": "- returns square root of a number.",
         "color": "yellow"
     },
     "quit": {
@@ -106,8 +121,9 @@ console_gui = f"""
 |       {actions_colored[2].ljust(31)}{calculator_objects["divide"]["description"].ljust(40)} |
 |       {actions_colored[3].ljust(31)}{calculator_objects["mult"]["description"].ljust(40)} |
 |       {actions_colored[4].ljust(31)}{calculator_objects["mod"]["description"].ljust(40)} |
-|       {actions_colored[5].ljust(31)}{calculator_objects["quit"]["description"].ljust(40)} |
-|       {actions_colored[6].ljust(31)}{calculator_objects["actions"]["description"].ljust(40)} |
+|       {actions_colored[5].ljust(31)}{calculator_objects["sqrt"]["description"].ljust(40)} |
+|       {actions_colored[6].ljust(31)}{calculator_objects["quit"]["description"].ljust(40)} |
+|       {actions_colored[7].ljust(31)}{calculator_objects["actions"]["description"].ljust(40)} |
 |  Type one of this actions to start                               |
 """
 
@@ -127,12 +143,17 @@ while True:
         print(console_gui)
         continue
 
-    a = int(input("First number is: "))
-    b = int(input("Second number is: "))
+    if action == "sqrt":
+        a = int(input("First number is: "))
+        b = None
+    else:
+        a = int(input("First number is: "))
+        b = int(input("Second number is: "))
 
     try:
         result = calculate(convert_str_to_method(action), a, b)
-        print(f"{a} {convert_str_to_sympol(action)} {b} = {result}")
+        print(f"{a} {convert_str_to_sympol(action)} {b} = {result}") if b is not None \
+            else print(f" {convert_str_to_sympol(action)}{a} = {result}")
     except TypeError:
         print(f"Mismatch in types. Contact admin at {email}.")
         logging.critical("Someone messed with code because this exception should never execute.")
