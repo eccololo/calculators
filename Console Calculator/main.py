@@ -17,14 +17,7 @@ def convert_str_to_method(str):
 
 
 def convert_str_to_sympol(str):
-    methods_dics = {
-        "add": "+",
-        "subtract": "-",
-        "divide": "/",
-        "multiplicate": "*",
-    }
-
-    return methods_dics[str]
+    return calculator_objects[str]["symbol"]
 
 
 def add(a, b):
