@@ -102,20 +102,19 @@ calculator_objects = {
 }
 
 actions_colored = []
-for action in calculator_objects.keys():
-    print(action)
+for action in calculator_objects.values():
     actions_colored.append(colored(action.get("gui_action"), action.get("color"), attrs=['bold']))
 
 console_gui = f"""
 ====================================================================
 |  Welcome to simple console calculator by Mateusz Hyla.           |
 |  Available actions:                                              |
-|       {actions_colored[0].ljust(31)}{available_descriptions[0].ljust(40)} |
-|       {actions_colored[1].ljust(31)}{available_descriptions[1].ljust(40)} |
-|       {actions_colored[2].ljust(31)}{available_descriptions[2].ljust(40)} |
-|       {actions_colored[3].ljust(31)}{available_descriptions[3].ljust(40)} |
-|       {actions_colored[4].ljust(31)}{available_descriptions[4].ljust(40)} |
-|       {actions_colored[5].ljust(31)}{available_descriptions[5].ljust(40)} |
+|       {actions_colored[0].ljust(31)}{calculator_objects["add"]["description"].ljust(40)} |
+|       {actions_colored[1].ljust(31)}{calculator_objects["subtract"]["description"].ljust(40)} |
+|       {actions_colored[2].ljust(31)}{calculator_objects["divide"]["description"].ljust(40)} |
+|       {actions_colored[3].ljust(31)}{calculator_objects["multiplicate"]["description"].ljust(40)} |
+|       {actions_colored[4].ljust(31)}{calculator_objects["quit"]["description"].ljust(40)} |
+|       {actions_colored[5].ljust(31)}{calculator_objects["actions"]["description"].ljust(40)} |
 |  Type one of this actions to start                               |
 """
 
