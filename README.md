@@ -39,4 +39,9 @@ you can write to me thorugh my blog [mstem.net](https://mstem.net/contact/).
 I would be most happy to start some trainee project with someone and post
 it on Github.
 
+##Licence
+This project is an open-source. You can download it, copy it, 
+modify it and distribute it. It is simple trainee project so I think
+it will have none outsode interest but be my guest.
+
 
