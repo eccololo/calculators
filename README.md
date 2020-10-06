@@ -31,4 +31,12 @@ contact for at my blog [mstem.net](https://mstem.net/contact/).
 Best job for me would be some internship or trainee position in Python 
 and Django tech stack.
 
+##Collaboration
+If you are in position of someone who is looking for starting 
+job in IT as a programmer and would like to train programming with someone
+you can write to me thorugh my blog [mstem.net](https://mstem.net/contact/).
+
+I would be most happy to start some trainee project with someone and post
+it on Github.
+
 
