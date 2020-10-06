@@ -147,8 +147,6 @@ while True:
         print(console_gui)
         continue
 
-
-
     try:
         if action == "sqrt":
             a = int(input("First number is: "))
@@ -157,9 +155,12 @@ while True:
             a = int(input("First number is: "))
             b = int(input("Second number is: "))
 
-        result = calculate(convert_str_to_method(action), a, b)
+        result = calculate(convert_str_to_method(action), a, b)  # calculations of operation
+
+        b = "(" + str(b) + ")" if int(b) < 0 else int(b)  # enclosing negative number in ()
+
         print(f"{a} {convert_str_to_sympol(action)} {b} = {result}") if b is not None \
-            else print(f" {convert_str_to_sympol(action)}{a} = {result}")
+            else print(f" {convert_str_to_sympol(action)}{a} = {result}") # printing results of operation
     except TypeError:
         print(f"Mismatch in types. Contact admin at {email}.")
         logging.critical("Someone messed with code because this exception should never execute.")
@@ -176,6 +177,6 @@ while True:
         logging.error("Someone used action which we didn't specify so there is no such key "
                       "in actions dictionary.")
     except ValueError:
-        print(f"You typed wrong character, probably a space or something similar instead of a number"
-              f".Contact admin for further explanations at {email}.")
-        logging.error("Someone typed a invalid character insetad a number.")
+        print(f"You typed wrong character, probably a space or something similar instead of a number. "
+              f"Contact admin for further explanations at {email}.")
+        logging.error("Someone typed a invalid character instead a number.")
