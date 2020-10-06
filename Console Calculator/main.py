@@ -173,3 +173,7 @@ while True:
               f" {action_colored}. Contact admin at {email}.")
         logging.error("Someone used action which we didn't specify so there is no such key "
                       "in actions dictionary.")
+    except ValueError:
+        print(f"You typed wrong character, probably a space or something similar instead of a number"
+              f".Contact admin for further explanations at {email}.")
+        logging.error("Someone typed a invalid character insetad a number.")
