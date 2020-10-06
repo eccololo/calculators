@@ -147,14 +147,16 @@ while True:
         print(console_gui)
         continue
 
-    if action == "sqrt":
-        a = int(input("First number is: "))
-        b = None
-    else:
-        a = int(input("First number is: "))
-        b = int(input("Second number is: "))
+
 
     try:
+        if action == "sqrt":
+            a = int(input("First number is: "))
+            b = None
+        else:
+            a = int(input("First number is: "))
+            b = int(input("Second number is: "))
+
         result = calculate(convert_str_to_method(action), a, b)
         print(f"{a} {convert_str_to_sympol(action)} {b} = {result}") if b is not None \
             else print(f" {convert_str_to_sympol(action)}{a} = {result}")
