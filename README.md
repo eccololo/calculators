@@ -1,4 +1,4 @@
-# Calculators in Python, tKinter and Django
+# Calculators in Python, TDD, tKinter and Django
 
 ##About
 This project is just training project. I decided
