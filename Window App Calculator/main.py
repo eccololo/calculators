@@ -1,7 +1,8 @@
 from tkinter import *
 
 Y_SMALL_BTN_SIZE = 18
-X_SMALL_BTN_SIZE = 20
+X_SMALL_BTN_SIZE = 19
+
 
 def action_result():
     pass
@@ -23,6 +24,10 @@ def divide():
     pass
 
 
+def square_root():
+    pass
+
+
 root = Tk()
 
 plus_button = Button(root, text="+", command=add, padx=X_SMALL_BTN_SIZE, pady=Y_SMALL_BTN_SIZE)
@@ -36,6 +41,9 @@ mult_button.grid(row=5, column=2)
 
 divide_button = Button(root, text="/", command=divide, padx=X_SMALL_BTN_SIZE, pady=Y_SMALL_BTN_SIZE)
 divide_button.grid(row=6, column=2)
+
+sqrt_button = Button(root, text=u'\u221A', command=square_root, padx=X_SMALL_BTN_SIZE, pady=Y_SMALL_BTN_SIZE)
+sqrt_button.grid(row=4, column=2)
 
 result_button = Button(root, text="=", command=action_result, bg="gray", padx=46, pady=46)
 result_button.grid(row=5, column=0, columnspan=2, rowspan=2)
